@@ -16,6 +16,7 @@ black if i + j even; K[b, w] = +1 (right), -1 (left), +i (up), -i (down).
 
 Usage:  python tables.py            (all tables; takes about a minute)
         python tables.py 1          (only Table I; likewise 2 or 3)
+        python tables.py 2x         (Table II extended to 18 <= n <= 22, Sec. III)
 """
 
 import sys
@@ -145,5 +146,6 @@ def table3(hs=range(4, 16)):
 if __name__ == '__main__':
     which = sys.argv[1:] or ['1', '2', '3']
     for t in which:
-        {'1': table1, '2': table2, '3': table3}[t]()
+        {'1': table1, '2': table2, '3': table3,
+         '2x': lambda: table2(range(18, 23))}[t]()
         print()

@@ -19,6 +19,7 @@ Kasteleyn matrix, and reproduce every figure and table of the paper.
 | `scripts/fig4_residue_classes.py` | `figures/fig4_residue_classes.pdf` | Fig. 4: P_H for AZ(9)–AZ(12), one per residue class of n mod 4 |
 | `scripts/fig5_chessboard.py` | `figures/fig5_chessboard.pdf` | Fig. 5: comparison with the L×L chessboard (even boards, odd boards with a central hole) |
 | `scripts/tables.py` | printed | Tables I–III: central values, maxima of P_H by sublattice, sublattice contrast |
+| `scripts/mean_height.py` | printed | Sec. IV: exact central mean height ⟨h(0,0)⟩ = (−1)^(n+1) n, its offset mod 4, and the basketweave plateau heights |
 | `scripts/verify_identity_general_regions.py` | printed | Exact enumeration check of P_H = P_V = P1 P2 + P3 P4 on regions other than the Aztec diamond, independent of any Kasteleyn matrix |
 
 ## Requirements
@@ -35,7 +36,7 @@ pip install -r requirements.txt
 
 ```
 python scripts/fig1_aztec_tilings.py      # likewise for fig2 ... fig5
-python scripts/tables.py                  # all tables; `python scripts/tables.py 2` for Table II only
+python scripts/tables.py                  # all tables; `python scripts/tables.py 2` for Table II only, `2x` for n = 18–22
 python scripts/verify_identity_general_regions.py
 ```
 
