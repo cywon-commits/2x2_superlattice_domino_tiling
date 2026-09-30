@@ -1,0 +1,4 @@
+{"cell": [9, 4, 0], "N": 36, "tilings": 326273, "bipartite": 23344, "classes": 366, "overflow": false, "seconds": 5.3}
+{"cell": [12, 4, 0], "N": 48, "tilings": 19294209, "bipartite": 996417, "classes": 4964, "overflow": false, "seconds": 118.3}
+{"cell": [12, 4, 8], "N": 48, "tilings": 19294209, "bipartite": 996417, "classes": 4964, "overflow": false, "seconds": 228.0}
+{"cell": [12, 4, 4], "N": 48, "tilings": 13219200, "bipartite": 6609600, "classes": 12641, "overflow": false, "seconds": 425.0}
