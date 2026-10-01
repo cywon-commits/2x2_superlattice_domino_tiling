@@ -18,6 +18,7 @@ Kasteleyn matrix, and reproduce every figure and table of the paper.
 | `scripts/fig3_spatial_az12.py` | `figures/fig3_spatial.pdf` | Fig. 3: P_H on all 2×2 squares and single-edge deviations in AZ(12) |
 | `scripts/fig4_residue_classes.py` | `figures/fig4_residue_classes.pdf` | Fig. 4: P_H for AZ(9)–AZ(12), one per residue class of n mod 4 |
 | `scripts/fig5_chessboard.py` | `figures/fig5_chessboard.pdf` | Fig. 5: comparison with the L×L chessboard (even boards, odd boards with a central hole) |
+| `scripts/fig6_height_plateaus.py` | `figures/fig6_height_plateaus.pdf` | Fig. 6: the four basketweave placements and their mean heights mod 4 |
 | `scripts/tables.py` | printed | Tables I–III: central values, maxima of P_H by sublattice, sublattice contrast |
 | `scripts/mean_height.py` | printed | Sec. IV: exact central mean height ⟨h(0,0)⟩ = (−1)^(n+1) n, its offset mod 4, and the basketweave plateau heights |
 | `scripts/verify_identity_general_regions.py` | printed | Exact enumeration check of P_H = P_V = P1 P2 + P3 P4 on regions other than the Aztec diamond, independent of any Kasteleyn matrix |
