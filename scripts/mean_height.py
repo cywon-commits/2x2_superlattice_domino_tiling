@@ -10,6 +10,10 @@ Height-function check used in Sec. IV of the paper.
      offset (<h(0,0)> - r_n) mod 4.
   3. Mean heights of the four basketweave placements on a large patch,
      measured from the residue of the vertex (0,0).
+  4. Eq. (14): P_H = 1/8 - c K/16 + (x_N x_S + x_E x_W)/16 with the saddle
+     curvature K = h_E + h_W - h_N - h_S of the mean height; checks the identity
+     on every square and compares the linear (curvature) part of the sublattice
+     contrast Delta with Delta itself, for AZ(n) and the 2m x 2m chessboard.
 
 Height convention (Thurston): h = 0 at the west corner (-n, 0).  A unit step
 with a black cell on its left changes h by +1 along a domino boundary and by
@@ -22,7 +26,7 @@ from collections import deque
 
 import numpy as np
 
-from tables import aztec, kasteleyn, edge_prob
+from tables import aztec, board, kasteleyn, edge_prob, all_squares
 
 STEPS = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
@@ -118,6 +122,44 @@ def basketweave_mean(p, q, swap=False, W=60):
     return float(np.mean(list(H.values())))
 
 
+def mean_heights(cells, start):
+    """Mean height on an arbitrary simply connected region, h = 0 at `start`."""
+    S = set(cells)
+    K, Ki, bm, wm = kasteleyn(cells)
+
+    def inside(v, d, u):
+        L, R = left_right(v, d)
+        return L in S or R in S
+
+    def dh(v, d):
+        L, R = left_right(v, d)
+        p = edge_prob(L, R, K, Ki, bm, wm) if (L in S and R in S) else 0.0
+        return colour(L) * (1 - 4 * p)
+
+    return integrate(start, dh, inside)[0]
+
+
+def curvature_contrast(cells, start, centre, radius=3.0):
+    """Return (Delta, linear part of Delta, max |Eq.(14) - P_H|)."""
+    H = mean_heights(cells, start)
+    sq, _ = all_squares(cells)
+    cx, cy = centre
+    rows, err = [], 0.0
+    for (a, b), ph in sq.items():
+        X, Y = b + 1, a + 1                       # central vertex of the square
+        c = 1 if (a + b) % 2 == 0 else -1
+        h0 = H[(X, Y)]
+        xE, xW = c * (H[(X + 1, Y)] - h0), c * (H[(X - 1, Y)] - h0)
+        xN, xS = -c * (H[(X, Y + 1)] - h0), -c * (H[(X, Y - 1)] - h0)
+        Kc = (H[(X + 1, Y)] + H[(X - 1, Y)]) - (H[(X, Y + 1)] + H[(X, Y - 1)])
+        err = max(err, abs(1 / 8 - c * Kc / 16 + (xN * xS + xE * xW) / 16 - ph))
+        if np.hypot(X - cx, Y - cy) <= radius:
+            rows.append((c, -c * Kc / 16, ph))
+    r = np.array(rows)
+    bl, wh = r[r[:, 0] == 1], r[r[:, 0] == -1]
+    return bl[:, 2].mean() - wh[:, 2].mean(), bl[:, 1].mean() - wh[:, 1].mean(), err
+
+
 if __name__ == '__main__':
     print('Central mean height of AZ(n)')
     print(f"{'n':>3} {'n%4':>4} {'<h(0,0)>':>12} {'(-1)^(n+1)n':>12} {'r_n':>4} "
@@ -134,3 +176,12 @@ if __name__ == '__main__':
         vals = [basketweave_mean(p, q, s) % 4 for s in (False, True)]
         print(f"  corner (a,b) = ({p},{q}) mod 2  [{cls}-anchored]: "
               f"{vals[0]:.3f}, swapped {vals[1]:.3f}")
+    print()
+    print('Eq. (14): sublattice contrast and its curvature part (radius 3)')
+    print(f"{'region':>12} {'Delta':>9} {'linear':>9} {'ratio':>6} {'Eq14 err':>9}")
+    for n in range(4, 23):
+        D, Lp, e = curvature_contrast(aztec(n), (-n, 0), (0, 0))
+        print(f"{'AZ(%d)' % n:>12} {D:+9.4f} {Lp:+9.4f} {Lp / D:6.3f} {e:9.1e}")
+    for m in range(4, 16):
+        D, Lp, e = curvature_contrast(board(2 * m), (0, 0), (m, m))
+        print(f"{'%dx%d' % (2 * m, 2 * m):>12} {D:+9.4f} {Lp:+9.4f} {Lp / D:6.3f} {e:9.1e}")

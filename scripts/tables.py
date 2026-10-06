@@ -9,7 +9,7 @@ Reproduce the numbers in Tables I-III of the paper.
               of AZ(n), 4 <= n <= 17.
   Table III : sublattice contrast Delta (mean P_H over black-anchored squares
               within distance 3 of the centre minus the same mean over
-              white-anchored squares) for AZ(h) and the 2h x 2h chessboard.
+              white-anchored squares) for AZ(m) and the 2m x 2m chessboard.
 
 Conventions (as in all scripts): cell (i, j) = [j, j+1] x [i, i+1], i = row;
 black if i + j even; K[b, w] = +1 (right), -1 (left), +i (up), -i (down).
@@ -134,13 +134,13 @@ def contrast(cells, centre, radius=3.0):
     return np.mean(B) - np.mean(W)
 
 
-def table3(hs=range(4, 16)):
+def table3(ms=range(4, 16)):
     print('Table III: sublattice contrast Delta (radius 3)')
-    print(f"{'h':>3} {'Delta AZ(h)':>12} {'Delta 2h x 2h':>14}")
-    for h in hs:
-        da = contrast(aztec(h), (0, 0))
-        dc = contrast(board(2 * h), (h, h))
-        print(f"{h:>3} {da:+12.4f} {dc:+14.4f}")
+    print(f"{'m':>3} {'Delta AZ(m)':>12} {'Delta 2m x 2m':>14}")
+    for m in ms:
+        da = contrast(aztec(m), (0, 0))
+        dc = contrast(board(2 * m), (m, m))
+        print(f"{m:>3} {da:+12.4f} {dc:+14.4f}")
 
 
 if __name__ == '__main__':
