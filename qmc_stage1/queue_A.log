@@ -1,0 +1,12 @@
+skip facet_1band_N656_b300_s2.json
+skip facet_2band_N656_b300_s2.json
+facet_2band_N656 beta=300 seed=4: E=-439.14466+-0.01722 (LSWT -431.52660) 3388.3s
+skip facet_1band_N164_b600_s2.json
+facet_1band_N656 beta=300 seed=3: E=-439.22711+-0.01734 (LSWT -431.65529) 3400.9s
+facet_2band_N656 beta=300 seed=3: E=-439.13278+-0.01426 (LSWT -431.52660) 3415.2s
+skip facet_2band_N164_b600_s2.json
+facet_1band_N656 beta=300 seed=4: E=-439.24088+-0.01700 (LSWT -431.65529) 3415.9s
+facet_1band_N164 beta=600 seed=3: E=-109.93504+-0.00699 (LSWT -108.02264) 492.4s
+facet_1band_N164 beta=600 seed=4: E=-109.91893+-0.00826 (LSWT -108.02264) 486.6s
+facet_2band_N164 beta=600 seed=4: E=-109.82433+-0.00667 (LSWT -107.87192) 494.3s
+facet_2band_N164 beta=600 seed=3: E=-109.81921+-0.00683 (LSWT -107.87192) 521.8s
