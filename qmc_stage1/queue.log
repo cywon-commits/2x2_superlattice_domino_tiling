@@ -1,8 +1,0 @@
-ribbon_L27_k9_N783 beta=300 seed=2: E=-524.18241+-0.02039 (LSWT -515.13187) 2173.2s
-ribbon_L27_k1_N783 beta=300 seed=2: E=-522.41514+-0.02366 (LSWT -513.78142) 2312.8s
-dice_L6_N432 beta=300 seed=2: E=-275.80625+-0.02010 (LSWT -273.52147) 624.7s
-z5crystal_L6_N540 beta=300 seed=2: E=-354.14929+-0.02757 (LSWT -349.57679) 1001.2s
-facet_1band_N656 beta=300 seed=2: E=-439.20147+-0.01753 (LSWT -431.65529) 3385.4s
-facet_2band_N656 beta=300 seed=2: E=-439.10806+-0.01341 (LSWT -431.52660) 3386.1s
-facet_1band_N164 beta=600 seed=2: E=-109.92197+-0.00792 (LSWT -108.02264) 471.2s
-facet_2band_N164 beta=600 seed=2: E=-109.82841+-0.00754 (LSWT -107.87192) 462.5s
