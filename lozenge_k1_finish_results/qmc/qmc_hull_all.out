@@ -1,0 +1,14 @@
+square                   M/Md=0.0000  dev=+0.00(0.01)e-3 J  presence=0.98
+new:new_3o47_k5          M/Md=0.0638  dev=-1.46(0.09)e-3 J  presence=0.03
+M111                     M/Md=0.0909  dev=-2.43(0.23)e-3 J  presence=0.82
+M19                      M/Md=0.1111  dev=-2.67(0.16)e-3 J  presence=0.51
+M17                      M/Md=0.1429  dev=-2.85(0.16)e-3 J  presence=0.11
+M6                       M/Md=0.1667  dev=-3.13(0.11)e-3 J  presence=0.11
+M15                      M/Md=0.2000  dev=-3.51(0.20)e-3 J  presence=0.38
+M14                      M/Md=0.2500  dev=-3.99(0.17)e-3 J  presence=0.60
+M3                       M/Md=0.3333  dev=-4.53(0.09)e-3 J  presence=0.90
+M2                       M/Md=0.5000  dev=-4.98(0.09)e-3 J  presence=0.47
+M35                      M/Md=0.6000  dev=-5.25(0.11)e-3 J  presence=1.00
+M23                      M/Md=0.6667  dev=-4.37(0.12)e-3 J  presence=0.48
+dice                     M/Md=1.0000  dev=+0.00(0.30)e-3 J  presence=1.00
+steps: [(np.float64(0.031), 'square', 'M111'), (np.float64(0.119), 'M111', 'M19'), (np.float64(0.132), 'M19', 'M14'), (np.float64(0.151), 'M14', 'M3'), (np.float64(0.173), 'M3', 'M35'), (np.float64(0.268), 'M35', 'dice')]
